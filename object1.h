@@ -2,6 +2,7 @@
 #define OBJECT1_H
 
 //file object1.h
+// проба инкапсуляции полей и методов в одной структуре
  typedef struct obj1 {
     void *self;
     int some_value;
