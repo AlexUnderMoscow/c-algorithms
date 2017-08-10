@@ -43,6 +43,6 @@ Stack* new_stack(void (*destroy)(void *data))
 
   stack->sizeofstack = 0;
   stack->head = NULL;
-  return list;
+  return stack:;
 }
 
