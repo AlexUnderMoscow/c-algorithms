@@ -39,7 +39,7 @@ Stack* new_stack(void (*destroy)(void *data))
   stack = (Stack*)malloc(sizeof(Stack));
   stack->stack_push = push;
   stack->stack_pop = pop;
-  stack->stack_size = size;
+  stack->size = size;
 
   stack->sizeofstack = 0;
   stack->head = NULL;
