@@ -1,10 +1,8 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <unistd.h>
-
-#include "object1.h"
-#include "object2.h"
 #include "list.h"
+#include "stack.h"
 
 #define NUM_THREADS     5
 
@@ -46,6 +44,22 @@ int main (int argc, char *argv[])
   my *m4 = malloc(sizeof(my));
   m4->c = '4';
   m4->count = 40;
+/*-------------stack----------------*/
+  Stack* stk;
+  my *tst;
+  stk = new_stack(destr);
+  stk->push(stk,m1);
+  stk->push(stk,m2);
+  stk->push(stk,m3);
+  stk->push(stk,m4);
+
+  tst = stk->pop(stk);
+  tst = stk->pop(stk);
+  tst = stk->pop(stk);
+  tst = stk->pop(stk);
+
+  tst = stk->pop(stk);
+  delete_stack(stk);
 /*--------------list----------------*/
   List* lst;
   lst = new_list(destr);
@@ -60,33 +74,10 @@ int main (int argc, char *argv[])
   int size = lst->size;
   my* tmp = lst->data(lst,2);
   delete_list(lst);
-/*----------------------------------*/
-
+/*-------------threads---------------------*/
+  int t;
   int rc;
-  long t;
-  int temp1 = 444;
-  int temp2 = 888;
   pthread_t threads[NUM_THREADS];
-
-  obj1 *o1, *o11;
-  obj2 *o2;
-  o1 = new_obj1();
-  o2 = new_obj2();
-  o1->fire(111);
-  o2->fire(222);
-
-  pthread_create(&threads[0],NULL,o1->fire,(void*)temp1);
-  pthread_create(&threads[1],NULL,o2->fire,(void*)temp2);
-  pthread_join(threads[0],NULL);
-  pthread_join(threads[1],NULL);
-
-    printf("Value1=%d \n",o1->some_value);
-    printf("Value2=%d \n",o2->some_value);
-
-  //free(o1); o1=NULL;
-  delete_obj1(o1); o1=NULL;
-  delete_obj2(o2); o2=NULL;
-
    for(t=0; t<NUM_THREADS; t++){
       printf("In main: creating thread %ld\n", t);
       rc = pthread_create(&threads[t], NULL, PrintHello, (void *)t);
@@ -96,7 +87,6 @@ int main (int argc, char *argv[])
       }
    }
 
-   /* Last thing that main() should do */
    pthread_exit(NULL);
 
 

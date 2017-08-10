@@ -19,12 +19,12 @@ struct StackElmt_   *next;
 //* САМ СТЭК                                 *
 
 typedef struct Stack {
-int               stack_size;
-int               (*push)(void *stack, void *element);
+int               sizeofstack;
+int               (*push)(void *stack, void *data);
 void*             (*pop)(void *stack);
 int               (*size)(void * stack);
-//void              (*destroy)(void *data);
-ListElmt           *head;
+void              (*destroy)(void *data);
+StackElmt           *head;
 } Stack;
 
 /*****************************************************************************
@@ -38,7 +38,7 @@ ListElmt           *head;
 Stack*      new_stack(void (*destroy)(void *data));
 void        delete_stack(void* stack);
 int         stack_size(void * stack);
-int         stack_push(void *stack, void *element);
+int         stack_push(void *stack, void *data);
 void*       stack_pop(void *stack);
 
 #endif // STACK_H

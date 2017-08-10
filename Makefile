@@ -5,7 +5,7 @@ CXXFLAGS = -g -gdwarf
 
 OBJS =  \
 	main.o \
-	object1.o object2.o list.o stack.o
+	list.o stack.o
 REBUILDABLES = $(OBJS) $(LINK_TARGET)
 
 all : $(LINK_TARGET)
