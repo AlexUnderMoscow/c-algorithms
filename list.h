@@ -30,18 +30,15 @@ ListElmt           *tail;
 
 //*  --------------------------- Public Interface ---------------------------  *
 int         list_ins_next(void *list, ListElmt *element, const void *data);
-void*         list_rem_next(void *list, ListElmt *element);
-//ListElmt*   list_head(List* list);
-//ListElmt*   list_tail(List* list);
+void*       list_rem_next(void *list, ListElmt *element);
 int         list_size(void* list);
 void*       list_data(void* list, int number);
-//ListElmt    list_next(ListElmt* element);
 List*       new_list(void (*destroy)(void *data));
 void        delete_list(void* list);
 /*-----------------------------------------------------------------------------*/
-
-
-
+//ListElmt    list_next(ListElmt* element);
+//ListElmt*   list_head(List* list);
+//ListElmt*   list_tail(List* list);
 
 #define list_tail(list) ((list)->tail)
 #define list_is_head(list, element) ((element) == (list)->head ? 1 : 0)

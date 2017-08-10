@@ -3,14 +3,9 @@ LINK_TARGET = class.exe
 CXX = gcc -std=c99
 CXXFLAGS = -g -gdwarf
 
-
-#-f win32 -F dwarf -g
-#-f win32
-#coff
-
 OBJS =  \
 	main.o \
-	object1.o object2.o list.o
+	object1.o object2.o list.o stack.o
 REBUILDABLES = $(OBJS) $(LINK_TARGET)
 
 all : $(LINK_TARGET)
@@ -29,3 +24,6 @@ clean :
 	echo clean done
 
 #-strip-local-absolute -traditional-format -march=i386
+#-f win32 -F dwarf -g
+#-f win32
+#coff
