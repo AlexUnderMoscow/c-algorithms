@@ -1,3 +1,3 @@
-# c-algorithms
-ligthOOP &amp; C language
- ![Иллюстрация](![Alt text](https://github.com/AlexUnderMoscow/c-algorithms/blob/master/logo.png?raw=true "Optional Title")
+# c-algorithms &amp; data structures
+ligthOOP &amp; C language (just for fun)
+(![Alt text](https://github.com/AlexUnderMoscow/c-algorithms/blob/master/logo.png?raw=true "Optional Title")
