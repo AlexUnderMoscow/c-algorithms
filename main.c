@@ -44,10 +44,14 @@ int main (int argc, char *argv[])
   m4->count = 40;
 /*------DynamicArray----------------*/
   DynamicArray* array = new_DynamicArray(4);
-  array->add(array,*m1);
-  array->add(array,*m2);
-  array->add(array,*m3);
-  array->add(array,*m4);
+  array->add(array,1);
+  array->add(array,2);
+  array->add(array,3);
+  array->add(array,4);
+
+  array->swap(array,1,3);
+  array->swap(array,0,2);
+
 /*-------------stack----------------*/
   Stack* stk;
   my *tst;

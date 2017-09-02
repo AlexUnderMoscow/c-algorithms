@@ -3,8 +3,8 @@
 #ifndef DYNAMICARRAY
 #define DYNAMICARRAY
 # ifndef TYPE
-# define TYPE     my
-# define TYPE_SIZE sizeof(my)
+# define TYPE     int
+# define TYPE_SIZE sizeof(int)
 # endif
 
 # ifndef EQ
