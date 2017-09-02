@@ -9,28 +9,7 @@
 #include "list.h"
 #include "stack.h"
 
-/*
- * typedef struct StackElmt_ {
-void               *data;
-struct StackElmt_   *next;
-} StackElmt;
 
-//* САМ СТЭК                                 *
-
-typedef struct Stack {
-int               sizeofstack;
-int               (*push)(void *stack, void *element);
-void*             (*pop)(void *stack);
-int               (*size)(void * stack);
-ListElmt           *head;
-} Stack;
-
-Stack*      new_stack(void (*destroy)(void *data));
-void        delete_stack(void* stack);
-int         stack_size(void * stack);
-int         stack_push(void *stack, void *element);
-void*       stack_pop(void *stack);
-*/
 Stack* new_stack(void (*destroy)(void *data))
 {
   Stack *stack;
@@ -44,11 +23,42 @@ Stack* new_stack(void (*destroy)(void *data))
   return stack;
 }
 
-void delete_stack(void *stack) {
+void* stack_rem_next(void *stack, StackElmt *element) {
+ListElmt           *old_element;
+void* data;
+
+if (stack_size((Stack*)stack) == 0)
+   return -1;
+
+if (element == NULL) {
+
+   data = ((Stack*)stack)->head->data;
+   old_element = ((Stack*)stack)->head;
+   ((Stack*)stack)->head = ((Stack*)stack)->head->next;
+   }
+
+else {
+   if (element->next == NULL)
+      return -1;
+   data = element->next->data;
+   old_element = element->next;
+   element->next = element->next->next;
+
+}
+
+free(old_element);
+((Stack*)stack)->size--;
+return data;
+}
+
+
+
+void delete_stack(void *stack)
+{
 void               *data;
 
 while (stack_size(stack) > 0) {
-   if (list_rem_next(stack, NULL) == 0 && ((Stack*)stack)->destroy !=
+   if (stack_rem_next(stack, NULL) == 0 && ((Stack*)stack)->destroy !=
       NULL) {
       ((Stack*)stack)->destroy(data);
    }
@@ -102,6 +112,4 @@ void* stack_pop(void *stack)
         ((Stack*)stack)->head = NULL;
       }
     return result;
-
 }
-

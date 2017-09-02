@@ -3,13 +3,11 @@
 #include <unistd.h>
 #include "list.h"
 #include "stack.h"
+#include "dynamicarray.h"
+
 
 #define NUM_THREADS     5
 
-typedef struct my_{
-  int count;
-  char c;
-} my;
 
 void *PrintHello(void *threadid)
 {
@@ -44,6 +42,12 @@ int main (int argc, char *argv[])
   my *m4 = malloc(sizeof(my));
   m4->c = '4';
   m4->count = 40;
+/*------DynamicArray----------------*/
+  DynamicArray* array = new_DynamicArray(4);
+  array->add(array,*m1);
+  array->add(array,*m2);
+  array->add(array,*m3);
+  array->add(array,*m4);
 /*-------------stack----------------*/
   Stack* stk;
   my *tst;
@@ -57,6 +61,7 @@ int main (int argc, char *argv[])
   tst = stk->pop(stk);
   tst = stk->pop(stk);
   tst = stk->pop(stk);
+
 
   tst = stk->pop(stk);
   delete_stack(stk);
