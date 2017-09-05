@@ -207,13 +207,14 @@ void swapDynArr(DynamicArray *v, int i, int  j)
 	post:	the element at idx is removed
 	post:	the elements past idx are moved back one
 */
-void removeAtDynArr(DynamicArray *v, int idx)
+TYPE removeAtDynArr(DynamicArray *v, int idx)
 {
    int i = 0;
+   TYPE result;
 
    //Index check
    assert((idx < v->size) && (idx >= 0));
-
+   result = v->data[idx];
    //Overwrite each element with value from successive element starting at index
    for(i = idx; i < v->size - 1; i++)     //Size - 1 is the index for the last data in array
       v->data[i] = v->data[i + 1];
@@ -222,6 +223,7 @@ void removeAtDynArr(DynamicArray *v, int idx)
 
    //Decrement size
    v->size--;
+   return result;
 }
 
 
@@ -280,9 +282,9 @@ TYPE topDynArr(DynamicArray *v)
 	post:	size is decremented by 1
 			the top has been removed
 */
-void popDynArr(DynamicArray *v)
+TYPE popDynArr(DynamicArray *v)
 {
-   removeAtDynArr(v, v->size - 1);  //Size - 1 is last element in array
+  return removeAtDynArr(v, v->size - 1);  //Size - 1 is last element in array
 }
 
 /* ************************************************************************

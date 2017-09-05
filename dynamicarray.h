@@ -22,12 +22,12 @@ typedef struct DynamicArray {
   TYPE (*get)(void *v, int pos);
   void (*put)(void *v, int pos, TYPE val);
   void (*swap)(void *v, int i, int  j);
-  void (*removeAt)(void *v, int idx);
+  TYPE (*removeAt)(void *v, int idx);
   /* Stack interface. */
   int (*isEmpty)(void *v);
   void (*push)(void *v, TYPE val);
   TYPE (*top)(void *v);
-  void (*pop)(void *v);
+  TYPE (*pop)(void *v);
   /* Bag Interface */
   int (*contains)(void *v, TYPE val);
   void (*remove)(void *v, TYPE val);
@@ -42,12 +42,12 @@ void addDynArr(DynamicArray *v, TYPE val);
 TYPE getDynArr(DynamicArray *v, int pos);
 void putDynArr(DynamicArray *v, int pos, TYPE val);
 void swapDynArr(DynamicArray *v, int i, int  j);
-void removeAtDynArr(DynamicArray *v, int idx);
+TYPE removeAtDynArr(DynamicArray *v, int idx);
 /* Stack interface. */
 int isEmptyDynArr(DynamicArray *v);
 void pushDynArr(DynamicArray *v, TYPE val);
 TYPE topDynArr(DynamicArray *v);
-void popDynArr(DynamicArray *v);
+TYPE popDynArr(DynamicArray *v);
 /* Bag Interface */
 int containsDynArr(DynamicArray *v, TYPE val);
 void removeDynArr(DynamicArray *v, TYPE val);
