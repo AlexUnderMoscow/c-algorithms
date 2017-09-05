@@ -62,6 +62,6 @@ void expressionsolver_postfixTransform(ExpressionSolver* es, char* input, char* 
 
 void delete_expressionsolver(ExpressionSolver* es)
 {
-  free (es->da);
+  delete_DynamicArray(es->da);
   free (es);
 }
