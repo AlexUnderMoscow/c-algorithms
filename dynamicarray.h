@@ -36,7 +36,6 @@ typedef struct DynamicArray {
 /* Dynamic Array Functions */
 DynamicArray *new_DynamicArray(int cap);
 void delete_DynamicArray(DynamicArray *v);
-
 int sizeDynArr(DynamicArray *v);
 void addDynArr(DynamicArray *v, TYPE val);
 TYPE getDynArr(DynamicArray *v, int pos);

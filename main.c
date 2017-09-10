@@ -6,10 +6,7 @@
 #include "dynamicarray.h"
 #include "expressionsolver.h"
 
-
 #define NUM_THREADS     5
-
-
 void *PrintHello(void *threadid)
 {
    long tid;
@@ -25,12 +22,8 @@ void destr(void *s)
   return;
 }
 
-
-
 int main (int argc, char *argv[])
 {
-
-
   my *m1 = malloc(sizeof(my));
   m1->c = '1';
   m1->count = 10;
@@ -43,13 +36,16 @@ int main (int argc, char *argv[])
   my *m4 = malloc(sizeof(my));
   m4->c = '4';
   m4->count = 40;
+
 /*------ExpressionSolver------------*/
+
 ExpressionSolver *es = new_expressionsolver(1000);
 char in[] = "(5*(((9+8)*(4*6))+7))";
 char* out = (char*)malloc(100);
 es->postfixTransform(es,in,out);
 double res = es->postfixCalc(es,out);
 delete_expressionsolver(es);
+
 /*------DynamicArray----------------*/
   DynamicArray* array = new_DynamicArray(4);
   array->add(array,1);
@@ -103,10 +99,5 @@ delete_expressionsolver(es);
          exit(-1);
       }
    }
-
    pthread_exit(NULL);
-
-
-
-
 }

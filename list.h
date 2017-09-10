@@ -36,16 +36,6 @@ void*       list_data(void* list, int number);
 List*       new_list(void (*destroy)(void *data));
 void        delete_list(void* list);
 /*-----------------------------------------------------------------------------*/
-//ListElmt    list_next(ListElmt* element);
-//ListElmt*   list_head(List* list);
-//ListElmt*   list_tail(List* list);
-
-#define list_tail(list) ((list)->tail)
-#define list_is_head(list, element) ((element) == (list)->head ? 1 : 0)
-#define list_is_tail(element) ((element)->next == NULL ? 1 : 0)
-//#define list_data(element) ((element)->data)
-#define list_next(element) ((element)->next)
-
 
 #endif // LIST_H
 

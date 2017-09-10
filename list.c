@@ -68,14 +68,14 @@ if ((new_element = (ListElmt *)malloc(sizeof(ListElmt))) == NULL)
 new_element->data = (void *)data;
 if (element == NULL) {
    if (list_size(list) == 0) {
-      ((List*)list)->head = new_element; //list->tail
+      ((List*)list)->head = new_element;
      }
    else
      {
        ((List*)list)->tail->next = new_element;
      }
-   new_element->next = NULL; //list->head
-   ((List*)list)->tail = new_element; //list->head
+   new_element->next = NULL;
+   ((List*)list)->tail = new_element;
    }
 else {
    if (element->next == NULL) ((List*)list)->tail = new_element;
