@@ -1,7 +1,5 @@
 #include "expressionsolver.h"
 
-
-
 ExpressionSolver* new_expressionsolver(int size)
 {
   ExpressionSolver* es=(ExpressionSolver*)malloc(sizeof(ExpressionSolver));
