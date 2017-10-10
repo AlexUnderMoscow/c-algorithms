@@ -8,6 +8,11 @@ OBJS =  \
 	list.o \
 	stack.o \
 	dynamicarray.o \
+	mergesort.o \
+	bubble.o \
+	selection.o \
+	heapsort.o \
+	quicksort.o \
 	expressionsolver.o
 REBUILDABLES = $(OBJS) $(LINK_TARGET)
 

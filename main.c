@@ -5,6 +5,11 @@
 #include "stack.h"
 #include "dynamicarray.h"
 #include "expressionsolver.h"
+#include "mergesort.h"
+#include "bubble.h"
+#include "heapsort.h"
+#include "quicksort.h"
+#include "selection.h"
 
 #define NUM_THREADS     5
 void *PrintHello(void *threadid)
@@ -36,7 +41,20 @@ int main (int argc, char *argv[])
   my *m4 = malloc(sizeof(my));
   m4->c = '4';
   m4->count = 40;
+/*-----------------heapsort--------------------------*/
+  //int arr[]={29,28,27,26,25,24,23,22,21,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1};
+  //int arr[]={27,28,29,24,25,26,21,22,23,18,20,16,17,18,13,14,15,10,11,12,7,8,9,4,5,6,1,2,3};
+  int arr[]={2,7,1,3,5,6,4};
+  quickSort(arr,7);
+  //heapSort(arr,29);
+/*-----------------mergesort-------------------------*/
 
+ // mergesortBU(arr,0,8);
+  //mergeSortAlex(arr,29);
+/*---------------bubble-----------------------------*/
+  //bubble(arr,29);
+/*----------selection-------------------------------*/
+  //selection(arr,29);
 /*------ExpressionSolver------------*/
 
 ExpressionSolver *es = new_expressionsolver(1000);
