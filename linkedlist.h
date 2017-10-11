@@ -32,6 +32,7 @@ typedef struct LinkedList{
 	void 	(*addFront)(struct LinkedList *lst, TYPE e);
 	TYPE	(*front)(struct LinkedList *lst);
 	TYPE 	(*back)(struct LinkedList *lst);
+	TYPE 	(*at)(struct LinkedList *lst, int pos);
 	void	(*removeFront)(struct LinkedList *lst);
 	void 	(*removeBack)(struct LinkedList *lst);
 	/*Bag Interface */
@@ -48,15 +49,16 @@ void delete_LinkedList(struct LinkedList *lst);
 /* Deque Interface */
 int 	isEmptyList(struct LinkedList *lst);
 int 	sizeList(struct LinkedList *lst);
-void  addBackList(struct LinkedList *lst, TYPE e);
+void	addBackList(struct LinkedList *lst, TYPE e);
 void 	addFrontList(struct LinkedList *lst, TYPE e);
-TYPE  frontList(struct LinkedList *lst);
+TYPE	frontList(struct LinkedList *lst);
 TYPE 	backList(struct LinkedList *lst);
-void  removeFrontList(struct LinkedList *lst);
+TYPE 	atList(struct LinkedList *lst, int pos);
+void	removeFrontList(struct LinkedList *lst);
 void 	removeBackList(struct LinkedList *lst);
 /*Bag Interface */
-void addList(struct LinkedList *lst, TYPE v);
-int containsList(struct LinkedList *lst, TYPE e);
-void removeList(struct LinkedList *lst, int pos);
+void	addList(struct LinkedList *lst, TYPE v);
+int	containsList(struct LinkedList *lst, TYPE e);
+void	removeList(struct LinkedList *lst, int pos);
 #endif // LINKEDLIST_H
 

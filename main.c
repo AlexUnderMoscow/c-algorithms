@@ -77,8 +77,8 @@ delete_expressionsolver(es);
   array->swap(array,0,2);
 /*-----------LinkedList-------------*/
   LinkedList* list = new_LinkedList();
-  for (int step = 0; step< 1024*1024*10; step++)
- {
+ // for (int step = 0; step< 1024*1024*10; step++)
+ //{
   list->add(list,1);
   list->add(list,2);
   list->add(list,3);
@@ -88,31 +88,32 @@ delete_expressionsolver(es);
   list->addBack(list,0);
   list->addFront(list,6);
 
-  int val = 3;
-  //if (list->contains(list,val))
-//    printf("list contains %d\n", val);
-//  else
-//    printf("list not contains %d\n",val);
+  int val = 10;
+  int pos = list->contains(list,val);
+  if (pos!=-1)
+    printf("list contains %d\n", val);
+  else
+    printf("list not contains %d\n",val);
 
   int back = list->back(list);
   int front = list->front(list);
 
-//  if (list->isEmpty(list))
-//    printf("list is empty\n");
-//  else
-//    printf("list is not empty\n");
+  if (list->isEmpty(list))
+    printf("list is empty\n");
+  else
+    printf("list is not empty\n");
 
   list->removeBack(list);
   list->removeFront(list);
   size = list->size(list);
-
+  int a_val = list->at(list,3);
   list->remove(list,0);
   list->remove(list,3);
   list->remove(list,2);
   list->remove(list,1);
   list->remove(list,0);
   size = list->size(list);
-}
+//}
 /*-------------stack----------------*/
   Stack* stk;
   my *tst;

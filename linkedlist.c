@@ -43,6 +43,7 @@ LinkedList *new_LinkedList(){
 	newList->removeBack = removeBackList;
 	newList->removeFront = removeFrontList;
 	newList->size = sizeList;
+	newList->at= atList;
 	_initList(newList);
 	return(newList);
 }
@@ -245,16 +246,18 @@ void addList(LinkedList *lst, TYPE v){
 */
 int containsList (LinkedList *lst, TYPE e){
         struct DLink *current = lst->firstLink;
-
+        int pos = 0;
         assert(lst);
     assert(! isEmptyList(lst));
-        while(current->next != lst->lastLink){
-                current = current->next;
-        if(current->value == e)
-                        return 1;
+        while(current->next != lst->lastLink)
+        {
+                  current = current->next;
+          if(current->value == e)
+                        return pos;
+          pos++;
         }
 
-        return 0;
+        return -1;
 }
 
 /*	Removes the first occurrence of the specified value from the collection
@@ -282,4 +285,23 @@ void removeList (LinkedList *lst, int pos){
     }
 
     return;
+}
+
+TYPE atList(LinkedList *lst, int pos)
+{
+  struct DLink *current = lst->firstLink; //firstLink->next
+int index = 0;
+if (pos+1 > lst->sizeoflist)
+  return 0;
+assert(lst);
+assert(! isEmptyList(lst));
+  while(current->next != lst->lastLink){
+  current = current->next;
+  if(pos == index) {
+      return current->value;
+  }
+  index++;
+
+}
+
 }
