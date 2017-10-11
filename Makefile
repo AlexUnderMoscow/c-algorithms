@@ -13,6 +13,7 @@ OBJS =  \
 	selection.o \
 	heapsort.o \
 	quicksort.o \
+	linkedlist.o \
 	expressionsolver.o
 REBUILDABLES = $(OBJS) $(LINK_TARGET)
 

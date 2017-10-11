@@ -10,6 +10,7 @@
 #include "heapsort.h"
 #include "quicksort.h"
 #include "selection.h"
+#include "linkedlist.h"
 
 #define NUM_THREADS     5
 void *PrintHello(void *threadid)
@@ -29,6 +30,7 @@ void destr(void *s)
 
 int main (int argc, char *argv[])
 {
+  int size;
   my *m1 = malloc(sizeof(my));
   m1->c = '1';
   m1->count = 10;
@@ -73,7 +75,44 @@ delete_expressionsolver(es);
 
   array->swap(array,1,3);
   array->swap(array,0,2);
+/*-----------LinkedList-------------*/
+  LinkedList* list = new_LinkedList();
+  for (int step = 0; step< 1024*1024*10; step++)
+ {
+  list->add(list,1);
+  list->add(list,2);
+  list->add(list,3);
+  list->add(list,4);
+  list->add(list,5);
 
+  list->addBack(list,0);
+  list->addFront(list,6);
+
+  int val = 3;
+  //if (list->contains(list,val))
+//    printf("list contains %d\n", val);
+//  else
+//    printf("list not contains %d\n",val);
+
+  int back = list->back(list);
+  int front = list->front(list);
+
+//  if (list->isEmpty(list))
+//    printf("list is empty\n");
+//  else
+//    printf("list is not empty\n");
+
+  list->removeBack(list);
+  list->removeFront(list);
+  size = list->size(list);
+
+  list->remove(list,0);
+  list->remove(list,3);
+  list->remove(list,2);
+  list->remove(list,1);
+  list->remove(list,0);
+  size = list->size(list);
+}
 /*-------------stack----------------*/
   Stack* stk;
   my *tst;
@@ -102,7 +141,7 @@ delete_expressionsolver(es);
   my* removed;
   removed = lst->rem_next(lst,NULL);
 
-  int size = lst->size;
+  size = lst->size;
   my* tmp = lst->data(lst,2);
   delete_list(lst);
 /*-------------threads---------------------*/

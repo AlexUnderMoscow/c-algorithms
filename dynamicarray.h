@@ -17,20 +17,20 @@ typedef struct DynamicArray {
   int size;		/* Number of elements in the array */
   int capacity;         /* capacity ofthe array */
   /* Dynamic Array Functions */
-  int (*arraySize)(void *v);
-  void (*add)(void *v, TYPE val);
-  TYPE (*get)(void *v, int pos);
-  void (*put)(void *v, int pos, TYPE val);
-  void (*swap)(void *v, int i, int  j);
-  TYPE (*removeAt)(void *v, int idx);
+  int (*arraySize)(struct DynamicArray *v);
+  void (*add)(struct DynamicArray *v, TYPE val);
+  TYPE (*get)(struct DynamicArray *v, int pos);
+  void (*put)(struct DynamicArray *v, int pos, TYPE val);
+  void (*swap)(struct DynamicArray *v, int i, int  j);
+  TYPE (*removeAt)(struct DynamicArray *v, int idx);
   /* Stack interface. */
-  int (*isEmpty)(void *v);
-  void (*push)(void *v, TYPE val);
-  TYPE (*top)(void *v);
-  TYPE (*pop)(void *v);
+  int (*isEmpty)(struct DynamicArray *v);
+  void (*push)(struct DynamicArray *v, TYPE val);
+  TYPE (*top)(struct DynamicArray *v);
+  TYPE (*pop)(struct DynamicArray *v);
   /* Bag Interface */
-  int (*contains)(void *v, TYPE val);
-  void (*remove)(void *v, TYPE val);
+  int (*contains)(struct DynamicArray *v, TYPE val);
+  void (*remove)(struct DynamicArray *v, TYPE val);
 } DynamicArray;
 //*  --------------------------- Public Interface ---------------------------  *
 /* Dynamic Array Functions */
