@@ -32,9 +32,6 @@ StackElmt           *head;
 *  --------------------------- Public Interface ---------------------------  *
 *                                                                            *
 *****************************************************************************/
-//The stack_init operation initializes a stack so that it can be used in other operations
-//Since a stack is a linked list and requires the same initialization, stack_init is defined to list_init.
-
 Stack*      new_stack(void (*destroy)(void *data));
 void        delete_stack(void* stack);
 int         stack_size(void * stack);
